@@ -1,0 +1,13 @@
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/closed_voting_site
+    username: root
+    password: 1234
+    driver-class-name: org.mariadb.jdbc.Driver
+
+server:
+  port: 8077
+  max-http-header-size: 400000
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain
