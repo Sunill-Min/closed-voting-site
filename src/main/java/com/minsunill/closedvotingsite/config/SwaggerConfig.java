@@ -3,14 +3,12 @@ package com.minsunill.closedvotingsite.config;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import springfox.documentation.builders.*;
 import springfox.documentation.service.ApiInfo;
+import springfox.documentation.service.Contact;
 import springfox.documentation.service.Response;
-import springfox.documentation.service.ResponseMessage;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -27,7 +25,7 @@ public class SwaggerConfig {
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder().title("Closed Voting Site")
-                .description("Closed Voting Site API Docs").version("1.0.0").build();
+                .description("Closed Voting Site API Docs").version("1.0.0").contact(new Contact("민선일", "", "min.sunill09@gamil.com")).build();
     }
 
     @Bean
@@ -41,7 +39,7 @@ public class SwaggerConfig {
                 new ResponseBuilder().code(String.valueOf(401)).description("Unauthorized").build(),
                 new ResponseBuilder().code(String.valueOf(404)).description("Not Found").build(),
                 new ResponseBuilder().code(String.valueOf(500)).description("Internal Server Error").build()
-        );
+        ); 
 
         // NOTE : http://springfox.github.io/springfox/docs/current/#configuration-explained
         return new Docket(DocumentationType.OAS_30)
